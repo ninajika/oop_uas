@@ -66,11 +66,22 @@ body{
     width: 100%;
     height: auto;
 }
+.showdata2{
+
+    margin-top: 25px;
+    width: 40%;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+
+}
 .showdata{
 
     margin-top: 25px;
     width: 75%;
-    height: 500px;
+    height: auto;
+    border-radius: 5px;
     background-color: white;
 
 }

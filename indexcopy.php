@@ -1,11 +1,13 @@
 <?php
-// include ("Databases.php");
-// include ("pasien.php");
-// $db_konek = New Database();
+include ("Databases.php");
+include ("pasien.php");
 
-// $query = new Pasien($db_konek->getKoneksi());
-// $result = mysqli_query($db, $query->baca_semua());
 
+$db_konek = New Database();
+$db_database = $db_konek->getKoneksi();
+
+$query = new Pasien($db_database);
+$read = $query-> baca_semua();
 
 
 
@@ -52,7 +54,7 @@
 <!-- Ini bagian display tabel data -->
 
     <div class="card-body">
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="border-radius: 5px;margin-top:5px;">
         <tr class="bg-primary">
             <td> id</td>
             <td> Nama</td>
@@ -66,38 +68,38 @@
         </tr>
 
         <tr>
-            <!-- <?php
+            <?php
 
             //query disini
-                while ($row = mysqli_fetch_assoc($result)){
+                while ($row = $read->fetch(PDO::FETCH_ASSOC)){
                     $dataid = $row['id'];
 
-                    // $ubahdata = 'ubahdata.php?datanya='.$dataid;
-                    // $deletedata = 'deletedata.php?datanya='.$dataid;
+                    $ubahdata = 'ubahdata.php?datanya='.$dataid;
+                    $deletedata = 'deletedata.php?datanya='.$dataid;
 
-            ?> -->
-            <!-- <td><?php echo $row['id'];   ?></td>
+            ?>
+            <td><?php echo $row['id'];   ?></td>
             <td><?php echo $row['nama'];   ?></td>
             <td><?php echo $row['umur'];   ?></td>
             <td><?php echo $row['alamat'];   ?></td>
-            <td><?php echo $row['no_hp'];   ?></td> -->
+            <td><?php echo $row['no_hp'];   ?></td>
  
 
 
 
 
 
-            <!-- <td><a href="<?php echo $ubahdata?>" class="btn btn-primary">edit</a></td>
-            <td><a href="<?php echo $deletedata?>" class="btn btn-danger">delete</a></td> -->
+            <td><a href="<?php echo $ubahdata?>" class="btn btn-primary">edit</a></td>
+            <td><a href="<?php echo $deletedata?>" class="btn btn-danger">delete</a></td>
             <!-- <td><button class="btn btn-danger" id="btn-del" >delete</button></td> -->
 
         </tr>
-            <!-- <?php
+            <?php
                 }
 
             
 
-            ?> -->
+            ?>
             
         
 
