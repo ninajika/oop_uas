@@ -14,19 +14,19 @@ class User
         $this->koneksi = $db; // buat ngambil deklarasi database
     }
 
-    public function login($username, $password)
+    public function login()
     {
         $sql = "SELECT * FROM " . $this->nama_tabel . " WHERE username = :username AND password = :password";
         $stmt = $this->koneksi->prepare($sql); // buat membuat statement
 
 
         // protect username and password from html input backtrack
-        $this->username = htmlspecialchars(strip_tags($username));
-        $this->password = htmlspecialchars(strip_tags($password));
+        $this->username = htmlspecialchars(strip_tags($this->username));
+        $this->password = htmlspecialchars(strip_tags($this->password));
 
         // execute username and password sql
-        $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":username", $this->username);
+        $stmt->bindParam(":password", $this->password);
 
         // execute the sql
         $stmt->execute();
@@ -37,9 +37,9 @@ class User
         if($num > 0)
         {
             $row = $stmt->fetch(PDO::FETCH_ASSOC); // buat ngambil data dengan metode fetch_assoc
-            if($row["password"] == $password) // ini buat melakukan pengecekan password jika di dalam row password terdapat password yang sama yang ada di form maka itu true
+            if($row["password"] == $this->password) // ini buat melakukan pengecekan password jika di dalam row password terdapat password yang sama yang ada di form maka itu true
             {
-                return $row["id"];
+                return $row["username "];
             }
         }
 

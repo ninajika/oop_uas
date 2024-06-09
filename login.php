@@ -44,8 +44,8 @@
     </div>
 
     <!-- <div class="imagebanner"></div> -->
-    <div class="showdatacontainer">
-    <div class="showdata2">
+        <div class="showdatacontainer">
+        <div class="showdata2">
         <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
