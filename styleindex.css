@@ -1,0 +1,76 @@
+body{
+    font-family: "Jost", sans-serif;
+    color: black;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    margin: 0;
+    /* background-color: cornflowerblue; */
+    background-color: rgb(151, 213, 255);
+
+    
+}
+
+.navbar{
+    width: 100%;
+    height: 75px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    /* border-bottom: solid rgb(122, 122, 122) 1px; */
+
+    align-items: center;
+    display: flex;
+    justify-content: center ;
+}
+
+.home{
+    width: 100px;
+    height: 50px;
+    /* background-color: brown; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.home > p{
+    margin: 0;
+    font-size: 25px;
+
+}
+.login{
+    width: 100px;
+    height: 50px;
+    /* background-color: brown; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.login > p{
+    margin: 0;
+    font-size: 25px;
+}
+
+.imagebanner{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 300px;
+    background-image: url('https://dinkes.jakarta.go.id/assets/upload/image/939-rsud_tarakan_jakarta_.jpg');
+}
+
+
+.showdatacontainer{
+    display: flex;
+    justify-content:center ;
+
+    width: 100%;
+    height: auto;
+}
+.showdata{
+
+    margin-top: 25px;
+    width: 75%;
+    height: 500px;
+    background-color: white;
+
+}
