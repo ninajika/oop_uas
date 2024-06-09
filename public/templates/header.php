@@ -14,10 +14,10 @@
 <body>
     <div class="navbar">
         <div class="home">
-            <p>Home</p>
+        <a href="index.php" style="text-decoration:none;color:black;margin-bottom:0px;"><p style="margin:0px;font-size:25px;">Home</p></a>
         </div>
         <div class="login">
-            <p>Login</p>
+            <a href="login.php" style="text-decoration:none;color:black;margin-bottom:0px;"><p style="margin:0px;font-size:25px;">Login</p></a>
         </div>
     </div>
     <div class="showdatacontainer">
