@@ -1,11 +1,15 @@
 RewriteEngine On
 
-# setting base directory
-RewriteBase /hospital/
 
-# pindahkan semua request ke public/index.php
-RewriteRule ^$ public/index.php [L]
+# Redirect to public/index.php if the file or directory does not exist
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . public/index.php [L]
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/index.php [L]
+# RewriteRule ^(.*)$ public/index.php [QSA,L]
 
+# Secure the .htaccess file
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>

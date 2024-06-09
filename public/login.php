@@ -3,6 +3,7 @@ session_start();
 include_once '../config/Databases.php';
 include_once '../class/User.php';
 
+include '../public/templates/header.php';
 if($_POST) {
     $database = new Database();
     $db = $database->getKoneksi();
@@ -20,5 +21,5 @@ if($_POST) {
     }
 }
 
-include 'templates/login.php';
+include '../public/templates/login_form.php';
 ?>
