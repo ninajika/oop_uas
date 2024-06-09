@@ -49,6 +49,8 @@
 
 
 
+<!-- Ini bagian display tabel data -->
+
     <div class="card-body">
     <table class="table table-bordered">
         <tr class="bg-primary">
@@ -65,6 +67,8 @@
 
         <tr>
             <!-- <?php
+
+            //query disini
                 while ($row = mysqli_fetch_assoc($result)){
                     $dataid = $row['id'];
 
