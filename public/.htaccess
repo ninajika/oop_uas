@@ -1,25 +1,7 @@
-# Redirect ke php jika file dan folder tidak ada
-
 RewriteEngine On
-RewriteBase /public/
+
+# Redirect all requests to public/index.php if not an existing file or directory
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
-
-# amankan file .htaccess
-
-<Files .htaccess>
-Order Allow,Deny
-Deny from all
-</Files>
-
-# blokir file sensitive
-
-<FilesMatch "\.(php|ini|log|sh|inc|bak)$">
-Order Allow,Deny
-Deny from all
-</FilesMatch>
-
-# Mematikan fitur Index Directory
-
-Options -Indexes
+RewriteRule ^ index.php [L]

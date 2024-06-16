@@ -39,7 +39,7 @@ class User
             $row = $stmt->fetch(PDO::FETCH_ASSOC); // buat ngambil data dengan metode fetch_assoc
             if($row["password"] == $this->password) // ini buat melakukan pengecekan password jika di dalam row password terdapat password yang sama yang ada di form maka itu true
             {
-                return $row["username "];
+                return $row["username"];
             }
         }
 
