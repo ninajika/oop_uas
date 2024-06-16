@@ -1,7 +1,7 @@
 RewriteEngine On
 
 # setting base directory
-RewriteBase /hospital/
+RewriteBase /${BASE_DIR}/
 
 # pindahkan semua request ke public/index.php
 RewriteRule ^$ public/index.php [L]

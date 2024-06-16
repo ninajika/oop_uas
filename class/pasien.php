@@ -37,4 +37,30 @@ class Pasien{
         $stmt->execute();
         return $stmt;
     }
+
+    public function perbarui(){
+        $sql = "UPDATE $this->nama_tabel SET nama = :nama, umur = :umur, alamat = :alamat, no_hp = :no_hp WHERE id = :id";
+        $stmt = $this->koneksi->prepare($sql);
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindParam(":nama", $this->nama);
+        $stmt->bindParam(":umur", $this->umur);
+        $stmt->bindParam(":alamat", $this->alamat);
+        $stmt->bindParam(":no_hp", $this->no_hp);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function tambah(){
+        $sql = "INSERT INTO $this->nama_tabel (id, nama, umur, alamat, no_hp) VALUES ('', :nama, :umur, :alamat, :no_hp)";
+        $stmt = $this->koneksi->prepare($sql);
+
+        // start binding
+        $stmt->bindParam(":nama", $this->nama);
+        $stmt->bindParam(":umur", $this->umur);
+        $stmt->bindParam(":alamat", $this->alamat);
+        $stmt->bindParam(":no_hp", $this->no_hp);
+        $stmt->execute();
+        return $stmt;
+
+    }
 }
