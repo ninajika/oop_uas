@@ -3,6 +3,7 @@ session_start();
 include_once '../config/Databases.php';
 include_once '../class/pasien.php';
 
+include 'templates/header.php';
 if($_POST) {
     $database = new Database();
     $db = $database->getKoneksi();

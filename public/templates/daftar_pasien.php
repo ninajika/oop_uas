@@ -10,6 +10,7 @@ $read = $pasien->baca_semua();
 ?>
 
 <div class="card-body">
+    <a href="create_pasien.php" class="btn btn-primary">Create</a>
     <table class="table table-bordered" style="border-radius: 5px; margin-top: 5px;">
         <tr class="bg-primary">
             <td>id</td>
@@ -23,8 +24,8 @@ $read = $pasien->baca_semua();
         <tr>
             <?php
             $dataid = $row['id'];
-            $ubahdata = "ubahdata.php?data=$dataid";
-            $deletedata = "delete.php?data=$dataid";
+            $ubahdata = "update_pasien.php?id=" . $dataid;
+            $deletedata = "delete_pasien.php?id=" . $dataid;
             ?>
             <!-- untuk load data dari database -->
             <td><?php echo $row['id']; ?></td>
@@ -39,3 +40,4 @@ $read = $pasien->baca_semua();
         <?php endwhile; ?>
     </table>
 </div>
+

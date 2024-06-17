@@ -22,18 +22,18 @@ class Pasien{
     }
 
     // kalau misalnya perlu kita baca pake id
-    public function baca_id(){
+    public function baca_id($id) {
         $sql = "SELECT * FROM $this->nama_tabel WHERE id = :id"; // ngambil per id
         $stmt = $this->koneksi->prepare($sql);
-        $stmt->bindParam(":id", $this->id); // binding id ke parameter
+        $stmt->bindParam(":id", $id); // binding id ke parameter
         $stmt->execute();
-        return $stmt;
+        return $stmt->fetch(PDO::FETCH_ASSOC); // mengambil hasil sebagai array asosiatif
     }
 
-    public function hapus(){
+    public function hapus($id){
         $sql = "DELETE FROM $this->nama_tabel WHERE id = :id"; // ngambil per id
         $stmt = $this->koneksi->prepare($sql);
-        $stmt->bindParam(":id", $this->id); // binding id ke parameter
+        $stmt->bindParam(":id", $id); // binding id ke parameter
         $stmt->execute();
         return $stmt;
     }
@@ -46,8 +46,7 @@ class Pasien{
         $stmt->bindParam(":umur", $this->umur);
         $stmt->bindParam(":alamat", $this->alamat);
         $stmt->bindParam(":no_hp", $this->no_hp);
-        $stmt->execute();
-        return $stmt;
+        return $stmt->execute();
     }
 
     public function tambah(){
