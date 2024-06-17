@@ -1,3 +1,24 @@
+<?php
+// ini untuk melakukan hide error, sebenarnya works fine thou
+ini_set('display_errors', 0);
+
+include_once '../config/Databases.php';
+include_once '../class/User.php';
+
+
+$database = new Database();
+$db = $database->getKoneksi();
+
+$user = new User($db);
+$user->username = $_SESSION['username'];
+
+
+$user_id = $user->cek_login();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +37,19 @@
         <div class="home">
         <a href="index.php" style="text-decoration:none;color:black;margin-bottom:0px;"><p style="margin:0px;font-size:25px;">Home</p></a>
         </div>
-        <div class="login">
+        <?php
+        if($user_id) {
+            $_SESSION['username'] = $user->username;
+            echo ' <div class="login">
+            <a href="logout.php" style="text-decoration:none;color:black;margin-bottom:0px;"><p style="margin:0px;font-size:25px;">Logout</p></a>
+        </div>';
+        } else {
+            echo '<div class="login">
             <a href="login.php" style="text-decoration:none;color:black;margin-bottom:0px;"><p style="margin:0px;font-size:25px;">Login</p></a>
-        </div>
+        </div>';
+        }
+        ?>
+        
     </div>
     <div class="showdatacontainer">
         <div class="showdata2">
