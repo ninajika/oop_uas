@@ -1,6 +1,6 @@
 <?php
 // ini untuk melakukan hide error, sebenarnya works fine thou
-ini_set('display_errors', 0);
+// ini_set('display_errors', 0);
 
 include_once '../config/Databases.php';
 include_once '../class/User.php';
@@ -10,8 +10,9 @@ $database = new Database();
 $db = $database->getKoneksi();
 
 $user = new User($db);
-$user->username = $_SESSION['username'];
-
+if(isset($_SESSION['username'])){
+    $user->username = $_SESSION['username'];
+}
 
 $user_id = $user->cek_login();
 
